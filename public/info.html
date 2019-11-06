@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Production time analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
+</head>
+
+<body>
+    <!--Header/Nav-->
+    <header>
+        <div class="container-logo pt-1">
+            <a class="navbar-brand m-2" href="index.html">
+                <img id="logo" src="images/bly-logo.png" alt="logo" style="width:250px;border-width:0px;">
+            </a>
+        </div>
+        <nav class="navbar p-0 navbar-expand-sm bg-white navbar-light">
+            <a class="navbar-brand">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-md-column" id="navbarCollapse">
+
+                <div class="input-group text-center">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"> Data input </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="display.html">Data visualisation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="info.html"> Project report </a>
+                        </li>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--Main-->
+    <main>
+
+        <div class="container">
+            <h1>Project report for <i>"production time analysis" </i></h1>
+<br>
+            <p id="report">I currently work as the administrator in a caravan and motorhome manufacturing company where
+                I’m engaged with data analysis every day, hence I decided to create a data visualisation related to my
+                workplace. A part of my daily duties is to record daily production efficiency outcomes across four lines
+                and two shifts, which includes for example logging quantities made and production downtime planned and
+                unplanned.<br></p>
+                <p id="report">
+                My workplace is currently going through multiple organisation changes, where I feel like the management
+                is not assigning the root issue when implementing solutions. The company is currently considering
+                decreasing the capacity of evening shift as “we do not require as much production time to fulfil current
+                targets”.<br>
+                While recording the figures I noticed multiple times a “gap” between logged data and full available time
+                for the shift. This is why I decided that "production gap" visualisation tool could be a practical and
+                beneficial project idea.<br>
+                The “gap” can be either positive or negative value and can indicate: <br>
+                • Incorrect run time for specific models <br>
+                • Set changeover time longer/shorter than required <br>
+                • Incorrect team leader documentation. <br>
+                I would like the outcome of my project to be able to showcase lead to further analyse if the management
+                statement is correct - if “gap” time is unprofitable or is it just incorrectly documented data. <br></p>
+                <p id="report">For the data source, I used existing numbers from the group of Excel spreadsheets I administrate at
+                work. I decided to start with visualising the past two weeks of production. User data input contains
+                multiple records from production day, which are used to calculate the production “gap" time and team
+                efficiency percentage. The data is displayed in four stacked and grouped bar charts, one for each
+                production line; I believe this is the best way to visualise production times data, as it executes clear
+                outcome. The filter function of presented information by date has been also added to improve analysis
+                effectiveness.
+            </p>
+        </div>
+    </main>
+    <!--Footer-->
+    <footer>
+        <div class="col-12 p-3 text-center">
+
+            <small>Visualised data has been used only for study purpose.</small>
+            <br>
+            Implementation: &copy;<a target="_blank" href="https://www.lauviahx.com/">Donata
+                Lesiak</a>
+        </div>
+    </footer>
+
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

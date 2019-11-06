@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Production time analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
+</head>
+
+<body>
+    <!--Header/Nav-->
+    <header>
+        <div class="container-logo pt-1">
+            <a class="navbar-brand m-2" href="index.html">
+                <img id="logo" src="images/bly-logo.png" alt="logo" style="width:250px;border-width:0px;">
+            </a>
+        </div>
+        <nav class="navbar p-0 navbar-expand-sm bg-white navbar-light">
+            <a class="navbar-brand">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-md-column" id="navbarCollapse">
+
+                <div class="input-group text-center">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"> Data input </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="display.html">Data visualisation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="info.html"> Project report </a>
+                        </li>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--Main-->
+    <main>
+        <div class="container">
+
+            <h1>Data input for <i>"production time analysis" </i></h1><br>
+            <p>Please input all production informtion into forms below, once ready click the <i>submit</i> button. </br>
+                Graphs can be find under data visualisation tab.
+            </p>
+            <div class="row justify-content-center">
+                <a href="display.html" class="btn btn-dark px-4" role="button"> See graphs</a>
+            </div>
+
+            <p>_______________________________</p>
+            <!--general input -->
+            <div class="row justify-content-center">
+                <h4>Choose production line:
+                    <div class="form-group">
+                        <select class="form-control" id="line">
+                            <option value="A">Line A</option>
+                            <option value="B">Line B</option>
+                            <option value="C">Line C</option>
+                            <option value="D">Line D</option>
+                        </select>
+                    </div>
+                </h4>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group">
+                    <h4>Choose production date: <input class="form-control" type="date" id="date" value="yyyy-mm-dd">
+                    </h4>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-6 ">
+                    <!--AM input-->
+                    <h3>Input AM shift details:</h3>
+                    <p><small style="font-style: italic;">Standard hours Monday till Thursday 06:00 - 15:00, Friday
+                            06:00 -</small></p>
+
+                    <h4>Input start and end time of shift:</h4>
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <label for="amStartTime">Start:</label>
+                                <input type="time" class="form-control2" id="amStartTime" value="00:00">
+                            </div>
+                            <div class="col">
+                                <label for="amEndTime">End: </label>
+                                <input type="time" class="form-control2" id="amEndTime" value="00:00"></div>
+                        </div>
+                    </form>
+                    <br></br>
+                    <h4>Time deductions:</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="amBreaks">Breaks/overlap (min.): </label>
+                            <input class="form-control2" type="number" id="amBreaks" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="amProduction">Production cycle times (min.): </label>
+                            <input class="form-control2" type="number" id="amProduction" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="amPlanned">Planned downtime, including changeovers (min.): </label>
+                            <input class="form-control2" type="number" id="amPlanned" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="amUnplanned">Unplanned downtime/breakdowns (min.): </label>
+                            <input class="form-control2" type="number" id="amUnplanned" value="0">
+                        </div>
+                    </form>
+
+                </div>
+                <!--PM input-->
+                <div class="col-lg-6 ">
+
+                    <h3>Input PM shift details:</h3>
+                    <p><small style="font-style: italic;">Standard hours Monday till Thursday 14:30 - 00:15</small></p>
+
+                    <h4>Input start and end time of shift:</h4>
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <label for="pmStartTime">Start:</label>
+                                <input type="time" class="form-control2" id="pmStartTime" value="00:00">
+                            </div>
+                            <div class="col">
+                                <label for="pmEndTime">End: </label>
+                                <input type="time" class="form-control2" id="pmEndTime" value="00:00">
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <h4>Time deductions:</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="pmBreaks">Breaks/overlap (min.): </label>
+                            <input class="form-control2" type="number" id="pmBreaks" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="pmProduction">Production cycle times (min.): </label>
+                            <input class="form-control2" type="number" id="pmProduction" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="pmPlanned">Planned downtime, including changeovers (min.): </label>
+                            <input class="form-control2" type="number" id="pmPlanned" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="pmUnplanned">Unplanned downtime/breakdowns (min.): </label>
+                            <input class="form-control2" type="number" id="pmUnplanned" value="0">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <br>
+
+            <div class="row justify-content-center">
+                <small>Please make sure inputed data is correct before submitting. <br>
+                    There is no possibility to edit or delete data at the moment. </small>
+            </div>
+            <br>
+            <div class="container text-center">
+                <!--Submit data-->
+                <button type="button" id="submit" class="btn btn-info btn-dark px-4" data-toggle="modal"
+                    data-target="#modal">Submit</button> <br>
+                <!--Modal-->
+                <div class="modal fade" id="modal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p style="color:#004a93;">Data has been submitted correctly!</p>
+                                See visualisation <br>
+                                <a href="display.html" class="btn btn-outline-dark px-4" role="button"> See graphs</a>
+                                <br>
+                                or add new record <br>
+                                <button id="addRecord" class="btn btn-outline-dark px-4" onclick="addRecord()">Start
+                                    adding new
+                                    record</button>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+    </main>
+    <!--Footer-->
+    <footer>
+        <div class="col-12 p-3 text-center">
+
+            <small>Visualised data has been used only for study purpose.</small>
+            <br>
+            Implementation: &copy;<a target="_blank" href="https://www.lauviahx.com/">Donata
+                Lesiak</a>
+        </div>
+    </footer>
+
+    <script>
+        // function expand() {
+        //     confirm("Data submitted, now you can see visualisation or other day of production");
+        // }
+        function addRecord() {
+            location.reload();
+        }
+    </script>
+
+    <script>
+
+        const buttonSubmit = document.getElementById('submit');
+        buttonSubmit.addEventListener('click', async event => { // get input values after submit button clicked
+            const line = document.getElementById('line').value;
+            const date = document.getElementById('date').value;
+
+            const amStartTime = document.getElementById('amStartTime').value;
+            const amEndTime = document.getElementById('amEndTime').value;
+            const amBreaks = document.getElementById('amBreaks').value;
+            const amProduction = document.getElementById('amProduction').value;
+            const amPlanned = document.getElementById('amPlanned').value;
+            const amUnplanned = document.getElementById('amUnplanned').value;
+
+            const pmStartTime = document.getElementById('pmStartTime').value;
+            const pmEndTime = document.getElementById('pmEndTime').value;
+            const pmBreaks = document.getElementById('pmBreaks').value;
+            const pmProduction = document.getElementById('pmProduction').value;
+            const pmPlanned = document.getElementById('pmPlanned').value;
+            const pmUnplanned = document.getElementById('pmUnplanned').value;
+
+            const data = { line, date, amStartTime, amEndTime, amBreaks, amProduction, amPlanned, amUnplanned, pmStartTime, pmEndTime, pmBreaks, pmProduction, pmPlanned, pmUnplanned }; // data object
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            };
+
+            const response = await fetch('/api', options); // insert data into database
+            const json = await response.json();
+
+        });
+    </script>
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Production time analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!--Chart.js-->
+    <script src="js/graphs.js"></script>
+    <!--charts js-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
+
+</head>
+
+<body>
+    <!--Header/Nav-->
+    <header>
+        <div class="container-logo pt-1">
+            <a class="navbar-brand m-2" href="index.html">
+                <img id="logo" src="images/bly-logo.png" alt="logo" style="width:250px;border-width:0px;">
+            </a>
+        </div>
+        <nav class="navbar p-0 navbar-expand-sm bg-white navbar-light">
+            <a class="navbar-brand">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-md-column" id="navbarCollapse">
+
+                <div class="input-group text-center">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"> Data input </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="display.html">Data visualisation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="info.html"> Project report </a>
+                        </li>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--Main-->
+    <main>
+
+        <div class="container">
+            <h1>Data visualisation for <i>"production time analysis" </i></h1><br>
+
+            <p>Please see displayed graphs below accordingly to the production lines.
+                <br>
+                The purpose of this visualisation is to understand "the gap" in production times.<br>
+                Really high or negative value for "gap" may indicate incorrect cycle times, incorrect downtime reports
+                or more.
+            </p>
+            <div class="row justify-content-center">
+                <a href="index.html" class="btn btn-dark px-4" role="button"> Data input</a>
+            </div>
+
+            <p>_______________________________</p>
+
+            <div class="container">
+                <form></form>
+                <h3>If you want to display specific range of data please use the filter below:</h3>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <label>From: </label>
+                        <input class="form-control2" type="date" id="dateFrom" value="yyyy-mm-dd">
+                    </div>
+                    <div class="col-lg-6">
+                        <label>To: </label>
+                        <input class="form-control2" type="date" id="dateTo" value="yyyy-mm-dd">
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-center">
+                    <button type="button" class="btn btn-outline-dark px-4" id="submit">Filter</button>
+                </div>
+
+                </form>
+
+            </div>
+            <div class="container-fluid">
+                <!--Charts-->
+                <div class="row justify-content-center">
+                    <div class=col-lg-6>
+                        <canvas id="chartA" width="600" height="600"></canvas>
+                    </div>
+                    <div class=col-lg-6>
+                        <canvas id="chartB" width="600" height="600"></canvas>
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-center">
+                    <div class=col-lg-6>
+                        <canvas id="chartC" width="600" height="600"></canvas>
+                    </div>
+                    <div class=col-lg-6>
+                        <canvas id="chartD" width="600" height="600"></canvas>
+                    </div>
+                </div>
+
+            </div>
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div class="col-12 p-3 text-center">
+
+            <small>Visualised data has been used only for study purpose.</small>
+            <br>
+            Implementation: &copy;<a target="_blank" href="https://www.lauviahx.com/">Donata
+                Lesiak</a>
+        </div>
+    </footer>
+
+    <script>
+        let filterFrom;  // local variables
+        let filterTo;
+
+        let button = document.getElementById('submit');
+        button.addEventListener('click', async event => { // run function on button click
+
+            // save date input value
+            filterFrom = document.getElementById('dateFrom').value;
+            filterTo = document.getElementById('dateTo').value;
+
+            // display charts applying filter
+            chartItA(filterFrom, filterTo);
+            chartItB(filterFrom, filterTo);
+            chartItC(filterFrom, filterTo);
+            chartItD(filterFrom, filterTo);
+
+        });
+    </script>
+
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "data_visualisation",
+  "version": "1.0.0",
+  "description": "simply data visualisation of gap in production times",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Donata Lesiak",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment-range": "^4.0.2",
+    "nedb": "^1.8.0"
+  }
+}
